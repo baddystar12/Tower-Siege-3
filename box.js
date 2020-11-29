@@ -28,4 +28,9 @@ class Box  {
        }
         
     }
+    score(){
+        if(this.visibility<0&&this.visibility>=-100){
+            score++;
+        }
+    }
   }
