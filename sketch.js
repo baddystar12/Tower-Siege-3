@@ -67,12 +67,16 @@ function setup() {
   box31 = new Box4(600, 40, 20, 30);
   polygon1 = new Polygon(50, 200, 35);
   slingShot = new SlingShot(polygon1.body, {x:100, y:200});
-
+  getBackground();
   Engine.run(engine);
 }
 
 function draw() {
+  if("#0018b5");
   background("#0018b5"); 
+  fill("white");
+  textSize(25);
+  text("Score:"+score, 500, 50);
   Engine.update(engine); 
   ground1.display();
   ground2.display();
@@ -119,49 +123,40 @@ function draw() {
   box31.display();
   polygon1.display();
   slingShot.display();
-  // detectCollision function
-  /*detectCollision(polygon1, box1);
-  detectCollision(polygon1, box2);
-  detectCollision(polygon1, box3);
-  detectCollision(polygon1, box4);
-  detectCollision(polygon1, box5);
-  detectCollision(polygon1, box6);
-  detectCollision(polygon1, box7);
-  detectCollision(polygon1, box8);
-  detectCollision(polygon1, box9);
-  detectCollision(polygon1, box10);
-  detectCollision(polygon1, box11);
-  detectCollision(polygon1, box12);
-  detectCollision(polygon1, box13);
-  detectCollision(polygon1, box14);
-  detectCollision(polygon1, box15);
-  detectCollision(polygon1, box16);
-  detectCollision(polygon1, box17);
-  detectCollision(polygon1, box18);
-  detectCollision(polygon1, box19);
-  detectCollision(polygon1, box20);
-  detectCollision(polygon1, box21);
-  detectCollision(polygon1, box22);
-  detectCollision(polygon1, box23);
-  detectCollision(polygon1, box24);
-  detectCollision(polygon1, box25);
-  detectCollision(polygon1, box26);
-  detectCollision(polygon1, box27);
-  detectCollision(polygon1, box28);
-  detectCollision(polygon1, box29);
-  detectCollision(polygon1, box30);
-  detectCollision(polygon1, box31);*/
+  box1.score();
+  box2.score();
+  box3.score();
+  box4.score();
+  box5.score();
+  box6.score();
+  box7.score();
+  box8.score();
+  box9.score();
+  box10.score();
+  box11.score();
+  box12.score();
+  box13.score();
+  box14.score();
+  box15.score();
+  box16.score();
+  box17.score();
+  box18.score();
+  box19.score();
+  box20.score();
+  box21.score();
+  box22.score();
+  box23.score();
+  box24.score();
+  box25.score();
+  box26.score();
+  box27.score();
+  box28.score();
+  box29.score();
+  box30.score();
+  box31.score();
   drawSprites();
 }
 
-/*function detectCollision(lpolygon, lbox){
-  boxBodyPosition = lbox.body.position;
-  polygon1BodyPosition = lpolygon.body.position;
-  var distance = dist(polygon1BodyPosition.x, polygon1BodyPosition.y, boxBodyPosition.x, boxBodyPosition.y);
-  if(distance<=lbox.width+lpolygon.radius){
-    Matter.Body.setStatic(lbox.body, false);
-  }
-}*/
 function keyPressed(){
   if(keyCode===32){
     Matter.Body.setPosition(polygon1.body, {x:50, y:200});
@@ -175,3 +170,17 @@ function mouseDragged(){
 function mouseReleased(){
   slingShot.fly();
 }
+
+async function getBackground(){
+  var response = await fetch("http://worldtimeapi.org/api/timezone/America/Los_Angeles");
+  var responseJSON = await response.json();
+  var dateTime = responseJSON.datetime;
+  var hour = dateTime.slice(11,13);
+  if(hour<19&&hour>=6){
+   bg = "#fc037f";
+  }
+  else{
+      bg = "#0018b5";
+  }
+}
+var score = 0
