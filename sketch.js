@@ -154,6 +154,9 @@ function draw() {
   box29.score();
   box30.score();
   box31.score();
+  textSize(20);
+  fill("white");
+  text("Press space bar to relaunch" , 300, 50);
   drawSprites();
 }
 
