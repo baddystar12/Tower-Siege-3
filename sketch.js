@@ -76,7 +76,7 @@ function draw() {
   background("#0018b5"); 
   fill("white");
   textSize(25);
-  text("Score:"+score, 500, 50);
+  text("Score:"+score, 100, 50);
   Engine.update(engine); 
   ground1.display();
   ground2.display();
@@ -154,9 +154,6 @@ function draw() {
   box29.score();
   box30.score();
   box31.score();
-  textSize(20);
-  fill("white");
-  text("Press space bar to relaunch" , 300, 50);
   drawSprites();
 }
 
@@ -179,7 +176,7 @@ async function getBackground(){
   var responseJSON = await response.json();
   var dateTime = responseJSON.datetime;
   var hour = dateTime.slice(11,13);
-  if(hour<19&&hour>=6){
+  if(hour<18&&hour>=6){
    bg = "#fc037f";
   }
   else{
