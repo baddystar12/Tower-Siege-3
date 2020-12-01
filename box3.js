@@ -10,7 +10,8 @@ class Box3 {
     }
     display(){
         var position = this.body.position;
-        if(this.body.speed<3){
+        this.visibility = 255;
+        if(this.body.speed<9){
             rectMode(CENTER);
             fill("#b7ff00");
             rect(position.x, position.y, this.width, this.height);
