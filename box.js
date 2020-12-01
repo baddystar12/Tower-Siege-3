@@ -10,7 +10,8 @@ class Box  {
     }
     display(){
         var position = this.body.position;
-        if(this.body.speed<3){
+        this.visiblity = 255;
+        if(this.body.speed<9){
             rectMode(CENTER);
             fill("magenta");
             rect(position.x, position.y, this.width, this.height);
