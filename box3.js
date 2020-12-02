@@ -6,11 +6,11 @@ class Box3 {
       this.body = Bodies.rectangle(x,y,width,height,box3_options);
       this.width = width;
       this.height = height;
+      this.visiblity = 255;
       World.add(world, this.body);
     }
     display(){
         var position = this.body.position;
-        this.visibility = 255;
         if(this.body.speed<9){
             rectMode(CENTER);
             fill("#b7ff00");
